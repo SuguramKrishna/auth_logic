@@ -11,6 +11,18 @@ class UserSessionsController < ApplicationController
     else
       render :new
     end
+  #   user = User.find_by(email: params[:email])
+  # if user.present? && user.authenticate(params[:password])
+  #   if user.email_confirmed
+  #   redirect_to todolists_path
+  #   else
+  #       flash.now[:error] = 'Please activate your account by following the instructions in the account confirmation email you received to proceed'
+  #       render 'new'
+  #   end
+  # else
+  #    flash.now[:error] = 'Invalid email/password combination' # Not quite right!
+  #    render 'new'
+  # end
   end
 
   def destroy

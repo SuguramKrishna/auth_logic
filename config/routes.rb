@@ -69,5 +69,16 @@ resources :user_sessions, only: [:create, :destroy]
 
 delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
 get '/sign_in', to: 'user_sessions#new', as: :sign_in
-  
+
+# resources :users do
+#   member do
+#     get :confirm_email
+#   end
+# end
+
+end
+
+require 'sidekiq/web'
+Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
 end

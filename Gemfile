@@ -47,3 +47,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'authlogic', '3.4.6'
 gem 'sidekiq'
+# gem 'dalli'

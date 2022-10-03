@@ -1,8 +1,10 @@
 class WelcomeWorker < BaseWorker
   include Sidekiq::Worker
+  sidekiq_options queue: 'mailers'
 
-  def perform(user)
+  def perform(user_id)
     # Do something
-    UserMailer.welcome_email(user).deliver
+    @user = User.find(user_id)
+    UserMailer.with(user: @user).welcome_email.deliver_now  
   end
 end

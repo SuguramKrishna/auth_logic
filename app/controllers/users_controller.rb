@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      WelcomeWorker.new.perform params['user']
+      WelcomeWorker.perform_async(@user.id)
       flash[:success] = "Account registered!"
       # UserMailer.registration_confirmation(@user).deliver_now
       # redirect_to sign_in_path, notice: "Successfully Created"
